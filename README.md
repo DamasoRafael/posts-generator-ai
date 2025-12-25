@@ -1,16 +1,60 @@
-# React + Vite
+# 🤖 Gerador de Posts com IA 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação **Full Stack** que utiliza Inteligência Artificial para criar conteúdo otimizado para múltiplas redes sociais (LinkedIn, Twitter/X e YouTube) a partir de um único tema.
 
-Currently, two official plugins are available:
+> **Status do Projeto:** 🚀 Em Produção (Deploy na Vercel)
+> 🔗 **Acesse aqui:** https://posts-generator-ai-mocha.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📸 Preview
+![alt text](image.png)
 
-## React Compiler
+## 🛠️ Tecnologias Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Este projeto foi desenvolvido com uma arquitetura desacoplada (Decoupled Architecture) focada em escalabilidade e engenharia de prompt.
 
-## Expanding the ESLint configuration
+* **Front-end:** React.js + Vite (SPA Responsiva)
+* **Back-end / Orquestração:** n8n (Workflow Automation)
+* **Inteligência Artificial:** Llama 3 (via Groq API) para inferência ultra-rápida.
+* **Deploy:** Vercel (Front-end) + Instância Self-Hosted/Cloud (n8n).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 Engenharia & Funcionalidades
+
+### 1. Injeção de Contexto (Context Injection)
+Diferente de um chat comum, esta aplicação injeta parâmetros de sistema no prompt da LLM. O usuário pode selecionar o **Tom de Voz** (Engraçado, Polêmico, Corporativo), e o Front-end envia esse metadado para o Back-end adaptar a resposta.
+
+### 2. Tratamento de Dados (Parsing)
+* O n8n recebe o JSON cru da IA.
+* Um nó de **Javascript Code** limpa marcadores Markdown e formata a string em um Objeto JSON válido.
+* O Front-end recebe dados estruturados, prevenindo erros de renderização.
+
+### 3. Usabilidade (UX)
+* Interface limpa e focada.
+* Botões de "Copy to Clipboard" integrados com a API do navegador.
+* Feedback visual de carregamento e sucesso.
+
+## 🚀 Como Rodar Localmente
+
+### Pré-requisitos
+* Node.js instalado.
+* Uma instância do n8n rodando (Local ou Cloud).
+* Chave de API da Groq (Grátis).
+
+### Instalação
+
+1.  Clone o repositório:
+    ```bash
+    git clone https://github.com/DamasoRafael/posts-generator-ai.git
+    ```
+2.  Instale as dependências:
+    ```bash
+    cd nome-do-projeto
+    npm install
+    ```
+3.  Execute o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+
+---
+Desenvolvido por **Rafael Damaso** 💻
+[LinkedIn](https://www.linkedin.com/in/rafael-damaso-26b678284/) | [GitHub](https://github.com/DamasoRafael)
