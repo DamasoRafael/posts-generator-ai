@@ -140,7 +140,20 @@ function App() {
           </div>
         </div>
       )}
-    </div>
+
+      {/* RODAPÉ - Adicione este bloco antes do fechamento da div principal */}
+      <footer className="footer">
+        <p>
+          Desenvolvido por <strong>Rafael Damaso</strong>
+        </p>
+        <div className="social-links">
+          <a href="https://github.com/DamasoRafael" target="_blank" rel="noreferrer">GitHub</a>
+          <span>|</span>
+          <a href="https://www.linkedin.com/in/rafael-damaso-26b678284/" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </footer>
+
+    </div> // <--- Fechamento da div App ou container
   )
 }
 export default App
