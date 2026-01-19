@@ -18,16 +18,11 @@ function App() {
     try {
       // IMPORTANTE: usarei URL de teste do n8n (aquela que muda)
       // Quando for pra produção, usarei a URL de Production do n8n
-      const response = await fetch('https://rafaeldamaso.app.n8n.cloud/webhook/gerar-post', {
+      const response = await fetch('/api/gerar-posts', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          texto: texto,
-          tom: tom
-        })
-      })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ texto, tom })
+      });
 
       if (!response.ok) throw new Error('Erro na requisicao ao n8n');
 
